@@ -1,3 +1,39 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Tilesets/Battleground.tres" type="TileSet" id=1]
+[ext_resource path="res://Tilesets/BattlegroundTiles/Ball.png" type="Texture" id=2]
+[ext_resource path="res://Playertest.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 66.7826
 
 [node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 256, 256 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 4, 0, 131077, 4, 0, 131078, 4, 0, 131079, 4, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 0, 262147, 4, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 9, 30, 0, 10, 19, 0, 11, 20, 0, 12, 20, 0, 13, 20, 0, 14, 20, 0, 15, 20, 0, 65545, 30, 0, 65546, 19, 0, 65547, 20, 0, 65548, 20, 0, 65549, 20, 0, 65550, 20, 0, 65551, 20, 0, 131081, 30, 0, 131082, 19, 0, 131083, 20, 0, 131084, 20, 0, 131085, 20, 0, 131086, 20, 0, 131087, 20, 0, 196617, 30, 0, 196618, 19, 0, 196619, 20, 0, 196620, 20, 0, 196621, 20, 0, 196622, 20, 0, 196623, 20, 0, 262153, 30, 0, 262154, 19, 0, 262155, 20, 0, 262156, 20, 0, 262157, 20, 0, 262158, 20, 0, 262159, 20, 0, 327690, 22, 0, 327691, 23, 0, 327692, 23, 0, 327693, 23, 0, 327694, 23, 0, 327695, 23, 0, 393226, 29, 0, 393228, 29, 0, 393230, 29, 0 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 101, 59 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 0, -1 )
+scale = Vector2( 0.269531, 0.269531 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, -1 )
+scale = Vector2( 0.269531, 0.269531 )
+shape = SubResource( 1 )
