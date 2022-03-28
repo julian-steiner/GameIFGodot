@@ -3,15 +3,15 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var speed = 100000;
+var velocity = Vector2(0, 0);
+
 func start(var pos, var direction):
 	self.position = pos;
 	self.rotation = direction;
+	velocity = Vector2(speed, 0).rotated(direction)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	move_and_slide(velocity * delta);
+	if (move_and_collide(velocity * delta)):
+		queue_free();

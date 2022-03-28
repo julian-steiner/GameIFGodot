@@ -95,14 +95,14 @@ animations = [ {
 "name": "walk_pistol",
 "speed": 40.0
 }, {
-"frames": [ ExtResource( 46 ), ExtResource( 44 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 81 ), ExtResource( 57 ) ],
-"loop": true,
-"name": "idle_pistol",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 30 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "shoot_rifle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 54 ), ExtResource( 75 ) ],
+"loop": true,
+"name": "shoot_pistol",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 27 ), ExtResource( 35 ), ExtResource( 9 ), ExtResource( 28 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 23 ) ],
@@ -115,26 +115,28 @@ animations = [ {
 "name": "idle_rifle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 54 ), ExtResource( 75 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 44 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 81 ), ExtResource( 57 ) ],
 "loop": true,
-"name": "shoot_pistol",
+"name": "idle_pistol",
 "speed": 10.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 33.0
 
-[node name="AMPH-Gunner" type="Node2D"]
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="AMPH-Gunner" type="KinematicBody2D"]
+rotation = -6.28319
 script = ExtResource( 87 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "walk_rifle"
-frame = 8
+frame = 4
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 69, 27 )
